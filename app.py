@@ -24,9 +24,9 @@ class MyLabelEncoder(LabelEncoder):
 
 
 train_df = pd.read_csv(
-    r'data\new_train_after_outlier_removal.csv')
+    r'./data/new_train_after_outlier_removal.csv')
 orig_train_df = pd.read_csv(
-    r'data\train.csv')
+    r'./data/train.csv')
 # values = train_df.values.tolist()
 # variable_names = train_df.columns.tolist()
 
@@ -606,7 +606,7 @@ async def page5(q: Q):
             - Final AQI is the maximum Sub-Index with the condition that at least one of PM2.5 and PM10 should be available and at least three out of the seven should be available.''',
         category='',
         icon='LightBulb',
-        image=r'https://i.postimg.cc/ZRxJ9v04/AQI.jpg',
+        image=r'https://i.postimg.cc/NG7CBQTJ/AQI.jpg',
         image_height='200px'
     ))
 
@@ -670,7 +670,7 @@ div[data-test="body"]>div {
     q.page['sidebar'] = ui.nav_card(
         box='sidebar', color='card', title='', subtitle="Predicting the air you breathe.",
         value=f'#{q.args["#"]}' if q.args['#'] else '#page1',
-        image='https://i.postimg.cc/tJc7XTC9/Air-Foresight.png', items=[
+        image='https://i.postimg.cc/CKGLmZBH/Air-Foresight.png', items=[
             ui.nav_group('Explore', items=[
                 ui.nav_item(name='#page1', label='Home'),
                 ui.nav_item(name='#page2', label='Data Tables'),
