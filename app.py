@@ -218,7 +218,7 @@ async def page1(q: Q):
     clear_cards(q)
 
     add_card(q, 'title_card', ui.header_card(
-        box='vertical',
+        box='header',
         title='H2O Olympics | H2O World India Hackathon - Team H2O_U3108',
         subtitle='',
         color='card',
@@ -240,21 +240,19 @@ async def page1(q: Q):
     pipeline_layout(q, 7, 'Results', 'page8', 'Here are the final results!',
                     'https://badgeos.org/wp-content/uploads/2018/06/badges_0004_leaderboard-300x300.png')
 
-    # add_card(q, 'stage1', ui.tall_info_card(
-    #     box='1 1 4 5',
-    #     name='step-1',
-    #     title='Data',
-    #     caption='Understand the data provided to us',
-    #     category='Category',
-    # )
-    # )
-
 
 @on('#page2')
 async def page2(q: Q):
     q.page['sidebar'].value = '#page2'
     # When routing, drop all the cards except of the main ones (header, sidebar, meta).
     clear_cards(q)
+
+    add_card(q, 'title_card', ui.header_card(
+        box='header',
+        title='Data Tables',
+        subtitle='',
+        color='card'
+    ))
 
     if q.events.table:
         table = q.page['table_form_card'].items[0].table
@@ -329,6 +327,13 @@ async def page3(q: Q):
     q.page['sidebar'].value = '#page3'
     # When routing, drop all the cards except of the main ones (header, sidebar, meta).
     clear_cards(q)
+
+    add_card(q, 'title_card', ui.header_card(
+        box='header',
+        title='Exploratory Data Analysis - Charts',
+        subtitle='',
+        color='card'
+    ))
 
     global Id
     global col_selected
@@ -410,10 +415,10 @@ async def handle_page4(q: Q):
     q.page['sidebar'].value = '#page4'
     # When routing, drop all the cards except of the main ones (header, sidebar, meta).
     # Since this page is interactive, we want to update its card instead of recreating it every time, so ignore 'form' card on drop.
-    clear_cards(q, ['icon-stepper'])
+    clear_cards(q)
 
     add_card(q, 'title_card', ui.header_card(
-        box='vertical',
+        box='header',
         title='Preprocessing',
         subtitle='',
         color='card'
@@ -580,7 +585,7 @@ async def page5(q: Q):
     clear_cards(q)
 
     add_card(q, 'title_card', ui.header_card(
-        box='horizontal',
+        box='header',
         title='Feature Engineering - AQI Formula Calculation',
         subtitle='',
         color='card'
@@ -617,6 +622,20 @@ async def page6(q: Q):
     # When routing, drop all the cards except of the main ones (header, sidebar, meta).
     clear_cards(q)
 
+    add_card(q, 'header_card', ui.header_card(
+        box='header',
+        title='Model Training',
+        subtitle='',
+        color='card'
+    ))
+    add_card(q, 'construction_card', ui.form_card(box='vertical_diff', items=[
+        ui.text_l(content='This section is in development'),
+        ui.image(title='construction',
+                 path='http://webdesigncompany.lk/images/services/creative-2-website-maintanance-services-company-in-sri-lanka.gif',
+        )
+    ]
+    ))
+
 
 @on('#page7')
 async def page7(q: Q):
@@ -625,10 +644,37 @@ async def page7(q: Q):
     clear_cards(q)
 
     add_card(q, 'title_card', ui.header_card(
-        box='horizontal',
-        title='List of All Models',
+        box='header',
+        title='Model Evaluation - List of All Models',
         subtitle='',
         color='card'
+    ))
+    add_card(q, 'construction_card', ui.form_card(box='vertical_diff', items=[
+        ui.text_l(content='This section is in development'),
+        ui.image(title='construction',
+                 path='http://webdesigncompany.lk/images/services/creative-2-website-maintanance-services-company-in-sri-lanka.gif',
+        )
+    ]
+    ))
+
+@on('#page8')
+async def page8(q: Q):
+    q.page['sidebar'].value = '#page8'
+    # When routing, drop all the cards except of the main ones (header, sidebar, meta).
+    clear_cards(q)
+
+    add_card(q, 'title_card', ui.header_card(
+        box='horizontal',
+        title='Results',
+        subtitle='',
+        color='card'
+    ))
+    add_card(q, 'construction_card', ui.form_card(box='vertical_diff', items=[
+        ui.text_l(content='This section is in development'),
+        ui.image(title='construction',
+                 path='http://webdesigncompany.lk/images/services/creative-2-website-maintanance-services-company-in-sri-lanka.gif',
+        )
+    ]
     ))
 
 
@@ -650,6 +696,8 @@ async def init(q: Q) -> None:
                                                           'alert_zone', size='50%',)
                                                   ]),
                                                   ui.zone('vertical'),
+                                                  ui.zone('vertical_diff', direction=ui.ZoneDirection.COLUMN,
+                                                          align='center', justify='center'),
                                                   ui.zone('grid', direction=ui.ZoneDirection.ROW,
                                                           wrap='stretch', justify='center'),
                                                   ui.zone('custom',
