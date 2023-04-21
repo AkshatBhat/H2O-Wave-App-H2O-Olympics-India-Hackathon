@@ -1,6 +1,7 @@
-# Check out the Web App deployed at: https://air-foresight-h2o-wave-app.onrender.com/
+# Check out the Web App deployed at:
+https://air-foresight-h2o-wave-app.onrender.com/
 
-# Getting Started with H2O Wave
+# Setting up H2O Wave locally
 
 This project was bootstrapped with `wave init` command.
 
@@ -33,10 +34,6 @@ wave run app.py
 ```
 
 Which will start a Wave app at <http://localhost:10101>.
-
-## Interactive examples
-
-If you prefer learning by doing, you can run `wave fetch` command that will download all the existing small Python examples that show Wave in action. The best part is that all these examples are interactive, meaning you can edit their code directly within the browser and observe the changes.
 
 ## Learn More
 
